@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+REPOSITORY
+{% endblock %}
+
+{% block extra-style %}
+
+{% endblock %}
+
+{% block content %}
+<main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services" style="min-height: 800px;">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Repository</h2>
+          <p>공부, 일상, 독서 등 기억에 남기고 싶은 활동들을 개인 블로그 및 페이지 등을 활용해 기록하고 있습니다. </p>
+        </div>
+
+        <div class="row">
+          <a href="https://statsbymin.tistory.com/">   
+          <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-red"> 
+              <div class="icon" style="overflow: hidden;">
+                
+                  <img src="{% static '/img/tistory.png' %}" alt="" width="100" height="100">
+
+              </div> <br>
+              <h4 class="titlename">Tistory Blog</h4>
+              <p class="subtitle">Study/Record</p>    
+            </div>
+          </a>
+          </div>
+          
+          
+          <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <a href="https://public.tableau.com/app/profile/.41055275">
+            <div class="icon-box iconbox-orange ">
+              <div class="icon">
+                  <img src="{% static '/img/tableau.png' %}" alt="" width="100" height="100">
+
+              </div><br>
+              <h4>Tableau Public</h4>
+              <p>Visualization</p>
+            </div>
+          </a>
+          </div>
+
+          
+      
+          <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+            <a href="https://www.notion.so/12e40cc60a6f4396be74c139737d9c3c?v=4c8e2f2b2be04146a24861a48c4ed0a7">
+            <div class="icon-box iconbox-pink">
+              <div class="icon">
+                  <img src="{% static '/img/notion.png' %}" alt="" width="90" height="90">
+
+              </div><br>
+              <h4>Notion</h4>
+              <p>Read</p>
+            </div>
+          </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+  </main><!-- End #main -->
+{% endblock %}
+

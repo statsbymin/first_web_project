@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- 제목 블록 Start(기본값 My Blog Page) -->
+{% block title %}
+PORTFOLIO
+{% endblock %}
+<!-- 제목 블록 End -->
+
+<!-- 스타일 블록 Start -->
+{% block extra-style %}
+{% endblock %}
+<!-- 스타일 블록 End -->
+
+<!-- 콘텐츠 블록 Start -->
+{% block content %}
+<main id="main">
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio1" class="portfolio1">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>교육, 팀/개인 프로젝트 등을 통해 여러가지 프로젝트 활동을 진행하였고 기억에 남는 장면들을 기록해 보았습니다.</p>
+        </div>
+
+    {% for object in object_list %}
+
+    <div class="mt-5" style="text-align:center ;">
+        <a class="h2" href="{% url 'photo:album_detail' object.id %}">{{ object.name }}</a>&emsp; <br><br>
+    </div>
+
+    <hr style="margin: 0 0 30px 0;">
+
+    <div class="row">
+        {% for photo in object.photo_set.all|slice:"20" %}
+        <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <a href="{{ photo.get_absolute_url }}">
+            <div class="icon-box iconbox-orange mb-4">
+              <div>
+                  <div style="overflow: hidden;">
+                    <img class="joom" src="{{ photo.image.thumb_url }}" alt="" width="100%">
+                  </div>
+                  <h5>{{ photo.project_name }}</h5>                            
+              </div>
+            </div>
+          </a>
+          </div>
+
+
+
+
+          <!-- <div class="card" style="width: 33.3%;">
+            <a href="{{ photo.get_absolute_url }}">
+            <div class="icon-box iconbox-orange mb-4">
+              <img class="card-img-top" src="{{ photo.image.thumb_url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ photo.project_name }}</h5>
+
+
+            </div>
+            </div>
+            </a>
+          </div> -->
+
+
+
+        <!-- <div class="ml-5 col-4">
+            <div class="thumbnail">
+                <a href="{{ photo.get_absolute_url }}">
+                    <img src="{{ photo.image.thumb_url }}" style="width: 100%">
+                </a>
+            </div>
+        </div> -->
+        {% endfor %}
+    </div>
+    {% endfor %}
+  </section><!-- End Portfolio Section -->
+</main><!-- End #main -->
+{% endblock %}
+<!-- 콘텐츠 블록 End -->
+
+
+<!-- 스크립트 블록 Start -->
+{% block extra-script %}
+{% endblock %}
+<!-- 스크립트 블록 End -->

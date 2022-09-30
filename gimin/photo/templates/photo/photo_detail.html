@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- 제목 블록 Start(기본값 My Blog Page) -->
+{% block title %}
+PROJECT_INFO
+{% endblock %}
+<!-- 제목 블록 End -->
+
+
+<!-- 스타일 블록 Start -->
+{% block extra-style %}
+{% endblock %}
+<!-- 스타일 블록 End -->
+
+
+<!-- 콘텐츠 블록 Start -->
+{% block content %}
+<main id="main">
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio1" class="portfolio1">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>교육, 팀/개인 프로젝트 등을 통해 여러가지 프로젝트 활동을 진행하였고 기억에 남는 장면들을 기록해 보았습니다.</p>
+        </div>
+
+
+
+
+    <h2 class="mt-5">{{ object.title }}</h2>
+    <div class="row">
+        <div class="col-md-9">
+            <a href="{{ object.image.url }}">
+                <img src="{{ object.image.url }}" style="width: 90%;">
+            </a>
+        </div>
+
+        <ul class="col-md-3 mt-3">
+            <li class="h5">Project Name</li>
+                <p class="font-italic"><a href="https://drive.google.com/drive/folders/1zHrxjB2aHwW0rZsGztlULg03cqLNZJew?usp=sharing">{{ object.project_name }}</a></p>
+            <li class="h5">Date Uploaded</li>
+                <p class="font-italic">{{ object.upload_dt|date:"Y-m-d" }}</p>
+            <li class="h5">Project Description</li>
+                {% if object.description %}<p>{{ object.description|linebreaks }}</p>
+                {% else %}<p>(blank)</p>{% endif %}
+        </ul>
+    </div>
+    </section><!-- End Portfolio Section -->
+</main><!-- End #main -->
+{% endblock %}
+<!-- 콘텐츠 블록 End -->
+
+
+<!-- 스크립트 블록 Start -->
+{% block extra-script %}
+{% endblock %}
+<!-- 스크립트 블록 End -->
